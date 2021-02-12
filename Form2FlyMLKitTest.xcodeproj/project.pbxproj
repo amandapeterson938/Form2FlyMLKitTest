@@ -3,19 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14950117844E0F96494A25D7 /* Pods_Form2FlyMLKitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C874A4E553FEFF429A39D1D6 /* Pods_Form2FlyMLKitTest.framework */; };
 		F028520D25D5FF5B009FEB11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028520C25D5FF5B009FEB11 /* AppDelegate.swift */; };
 		F028520F25D5FF5B009FEB11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028520E25D5FF5B009FEB11 /* SceneDelegate.swift */; };
 		F028521125D5FF5B009FEB11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028521025D5FF5B009FEB11 /* ViewController.swift */; };
 		F028521425D5FF5B009FEB11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F028521225D5FF5B009FEB11 /* Main.storyboard */; };
 		F028521625D5FF5C009FEB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F028521525D5FF5C009FEB11 /* Assets.xcassets */; };
 		F028521925D5FF5C009FEB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F028521725D5FF5C009FEB11 /* LaunchScreen.storyboard */; };
+		F0CA820625D608B900486A81 /* person2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0CA820525D608B900486A81 /* person2.jpg */; };
+		F0CA820925D608BF00486A81 /* person.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0CA820825D608BF00486A81 /* person.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		273DC19CED16A54A75892B80 /* Pods-Form2FlyMLKitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Form2FlyMLKitTest.debug.xcconfig"; path = "Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest.debug.xcconfig"; sourceTree = "<group>"; };
+		C874A4E553FEFF429A39D1D6 /* Pods_Form2FlyMLKitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Form2FlyMLKitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4FEEFCAB661EEFC0F209519 /* Pods-Form2FlyMLKitTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Form2FlyMLKitTest.release.xcconfig"; path = "Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest.release.xcconfig"; sourceTree = "<group>"; };
 		F028520925D5FF5B009FEB11 /* Form2FlyMLKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Form2FlyMLKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F028520C25D5FF5B009FEB11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F028520E25D5FF5B009FEB11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,8 @@
 		F028521525D5FF5C009FEB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F028521825D5FF5C009FEB11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F028521A25D5FF5C009FEB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0CA820525D608B900486A81 /* person2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = person2.jpg; path = ../../../../Desktop/person2.jpg; sourceTree = "<group>"; };
+		F0CA820825D608BF00486A81 /* person.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = person.jpeg; path = ../../../../Desktop/person.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14950117844E0F96494A25D7 /* Pods_Form2FlyMLKitTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FBB990263E47A5936495411 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				273DC19CED16A54A75892B80 /* Pods-Form2FlyMLKitTest.debug.xcconfig */,
+				D4FEEFCAB661EEFC0F209519 /* Pods-Form2FlyMLKitTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7F1834B5B33D9A21507A85E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C874A4E553FEFF429A39D1D6 /* Pods_Form2FlyMLKitTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F028520025D5FF5B009FEB11 = {
 			isa = PBXGroup;
 			children = (
 				F028520B25D5FF5B009FEB11 /* Form2FlyMLKitTest */,
 				F028520A25D5FF5B009FEB11 /* Products */,
+				3FBB990263E47A5936495411 /* Pods */,
+				7F1834B5B33D9A21507A85E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +84,8 @@
 		F028520B25D5FF5B009FEB11 /* Form2FlyMLKitTest */ = {
 			isa = PBXGroup;
 			children = (
+				F0CA820825D608BF00486A81 /* person.jpeg */,
+				F0CA820525D608B900486A81 /* person2.jpg */,
 				F028520C25D5FF5B009FEB11 /* AppDelegate.swift */,
 				F028520E25D5FF5B009FEB11 /* SceneDelegate.swift */,
 				F028521025D5FF5B009FEB11 /* ViewController.swift */,
@@ -74,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F028521D25D5FF5C009FEB11 /* Build configuration list for PBXNativeTarget "Form2FlyMLKitTest" */;
 			buildPhases = (
+				57B9391D32FDA2086F84CAF9 /* [CP] Check Pods Manifest.lock */,
 				F028520525D5FF5B009FEB11 /* Sources */,
 				F028520625D5FF5B009FEB11 /* Frameworks */,
 				F028520725D5FF5B009FEB11 /* Resources */,
+				94BDC49EABB6E69AB8922153 /* [CP] Embed Pods Frameworks */,
+				D012C043C9605FBC8D4367FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,11 +159,72 @@
 			files = (
 				F028521925D5FF5C009FEB11 /* LaunchScreen.storyboard in Resources */,
 				F028521625D5FF5C009FEB11 /* Assets.xcassets in Resources */,
+				F0CA820925D608BF00486A81 /* person.jpeg in Resources */,
 				F028521425D5FF5B009FEB11 /* Main.storyboard in Resources */,
+				F0CA820625D608B900486A81 /* person2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57B9391D32FDA2086F84CAF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Form2FlyMLKitTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94BDC49EABB6E69AB8922153 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D012C043C9605FBC8D4367FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Form2FlyMLKitTest/Pods-Form2FlyMLKitTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F028520525D5FF5B009FEB11 /* Sources */ = {
@@ -283,6 +377,7 @@
 		};
 		F028521E25D5FF5C009FEB11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273DC19CED16A54A75892B80 /* Pods-Form2FlyMLKitTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +397,7 @@
 		};
 		F028521F25D5FF5C009FEB11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4FEEFCAB661EEFC0F209519 /* Pods-Form2FlyMLKitTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
