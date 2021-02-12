@@ -28,7 +28,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         //Disply image picker
         self.present(imagePicker, animated: true, completion: nil)
     }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             myImgView.image = image
@@ -40,64 +39,113 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     func detect() {
         let options = AccuratePoseDetectorOptions()
         options.detectorMode = .singleImage
-           
+        
         let poseDetector = PoseDetector.poseDetector(options: options)
            
         let image = VisionImage(image: myImgView.image!)
         
-        var detectedP = true
-           
-        DispatchQueue.global(qos: .background).async {
+        var containsPoses = false
+        
+        DispatchQueue.global(qos: .background).async { //Background thread
             var results: [Pose]?
             do {
                 results = try poseDetector.results(in: image)
             }
             catch let error {
-                self.myTxtView.text = "Failed to detect pose with error: \(error.localizedDescription)."
+                print("Failed to detect pose with error: \(error.localizedDescription).")
                 return
             }
             guard let detectedPoses = results, !detectedPoses.isEmpty else {
-                detectedP = false
                 return
             }
             
-            DispatchQueue.main.async {
-                print("This is run on the main queue, after the previous code in outer block")
+            containsPoses = true
+            
+            DispatchQueue.main.async { //Ran on main queue
                                 
                 for pose in detectedPoses {
-                    let leftAnkleLM = (pose.landmark(ofType: .leftAnkle)).position
-                    let rightAnkleLM = (pose.landmark(ofType: .rightAnkle)).position
-                    let leftEyeLM = (pose.landmark(ofType: .leftEye)).position
-                    let rightEyeLM = (pose.landmark(ofType: .rightEye)).position
-                    let leftShoulderLM = (pose.landmark(ofType: .leftShoulder)).position
-                    let rightShoulderLM = (pose.landmark(ofType: .rightShoulder)).position
-                    let leftElbowLM = (pose.landmark(ofType: .leftElbow)).position
-                    let rightElbowLM = (pose.landmark(ofType: .rightElbow)).position
-                    let leftWristLM = (pose.landmark(ofType: .leftWrist)).position
-                    let rightWristLM = (pose.landmark(ofType: .rightWrist)).position
+                    let noseLM = (pose.landmark(ofType: .nose))
+                    let leftEyeInnerLM = (pose.landmark(ofType: .leftEyeInner))
+                    let leftEyeLM = (pose.landmark(ofType: .leftEye))
+                    let leftEyeOuterLM = (pose.landmark(ofType: .leftEyeOuter))
+                    let rightEyeInnerLM = (pose.landmark(ofType: .rightEyeInner))
+                    let rightEyeLM = (pose.landmark(ofType: .rightEye))
+                    let rightEyeOuterLM = (pose.landmark(ofType: .rightEyeOuter))
+                    let leftEarLM = (pose.landmark(ofType: .leftEar))
+                    let rightEarLM = (pose.landmark(ofType: .rightEar))
+                    let mouthLeftLM = (pose.landmark(ofType: .mouthLeft))
+                    let mouthRightLM = (pose.landmark(ofType: .mouthRight))
+                    let leftShoulderLM = (pose.landmark(ofType: .leftShoulder))
+                    let rightShoulderLM = (pose.landmark(ofType: .rightShoulder))
+                    let leftElbowLM = (pose.landmark(ofType: .leftElbow))
+                    let rightElbowLM = (pose.landmark(ofType: .rightElbow))
+                    let leftWristLM = (pose.landmark(ofType: .leftWrist))
+                    let rightWristLM = (pose.landmark(ofType: .rightWrist))
+                    let leftPinkyFingerLM = (pose.landmark(ofType: .leftPinkyFinger))
+                    let rightPinkyFingerLM = (pose.landmark(ofType: .rightPinkyFinger))
+                    let leftIndexFingerLM = (pose.landmark(ofType: .leftIndexFinger))
+                    let rightIndexFingerLM = (pose.landmark(ofType: .rightIndexFinger))
+                    let leftThumbLM = (pose.landmark(ofType: .leftThumb))
+                    let rightThumbLM = (pose.landmark(ofType: .rightThumb))
+                    let leftHipLM = (pose.landmark(ofType: .leftHip))
+                    let rightHipLM = (pose.landmark(ofType: .rightHip))
+                    let leftKneeLM = (pose.landmark(ofType: .leftKnee))
+                    let rightKneeLM = (pose.landmark(ofType: .rightKnee))
+                    let leftAnkleLM = (pose.landmark(ofType: .leftAnkle))
+                    let rightAnkleLM = (pose.landmark(ofType: .rightAnkle))
+                    let leftHeelLM = (pose.landmark(ofType: .leftHeel))
+                    let rightHeelLM = (pose.landmark(ofType: .rightHeel))
+                    let leftToeLM = (pose.landmark(ofType: .leftToe))
+                    let rightToeLM = (pose.landmark(ofType: .rightToe))
+
                                     
-                    self.myTxtView.text = "Left Ankle: \(leftAnkleLM)"
+                    self.myTxtView.text = "Left Ankle: \(leftAnkleLM.position)"
                                     
                     let imgDr = self.myImgView.image
                                     
                     UIGraphicsBeginImageContext(imgDr!.size)
                     imgDr!.draw(at: CGPoint.zero)
                     let context = UIGraphicsGetCurrentContext()!
-                                    
+                    
                     context.setStrokeColor(UIColor.red.cgColor)
                     context.setAlpha(0.5)
                     context.setLineWidth(10.0)
-                    context.addEllipse(in: CGRect(x: leftAnkleLM.x, y: leftAnkleLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: rightAnkleLM.x, y: rightAnkleLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: leftEyeLM.x, y: leftEyeLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: rightEyeLM.x, y: rightEyeLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: leftShoulderLM .x, y: leftShoulderLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: rightShoulderLM .x, y: rightShoulderLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: leftElbowLM .x, y: leftElbowLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: rightElbowLM .x, y: rightElbowLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: leftWristLM .x, y: leftElbowLM.y, width: 10, height: 10))
-                    context.addEllipse(in: CGRect(x: rightWristLM .x, y: rightElbowLM.y, width: 10, height: 10))
-                                    
+                    
+                    self.checkFrameLike(noseLM, context)
+                    self.checkFrameLike(leftEyeInnerLM, context)
+                    self.checkFrameLike(leftEyeLM, context)
+                    self.checkFrameLike(leftEyeOuterLM, context)
+                    self.checkFrameLike(rightEyeInnerLM, context)
+                    self.checkFrameLike(rightEyeLM, context)
+                    self.checkFrameLike(rightEyeOuterLM, context)
+                    self.checkFrameLike(leftEarLM, context)
+                    self.checkFrameLike(rightEarLM, context)
+                    self.checkFrameLike(mouthLeftLM, context)
+                    self.checkFrameLike(mouthRightLM, context)
+                    self.checkFrameLike(leftShoulderLM, context)
+                    self.checkFrameLike(rightShoulderLM, context)
+                    self.checkFrameLike(leftElbowLM, context)
+                    self.checkFrameLike(rightElbowLM, context)
+                    self.checkFrameLike(leftWristLM, context)
+                    self.checkFrameLike(rightWristLM, context)
+                    self.checkFrameLike(leftPinkyFingerLM, context)
+                    self.checkFrameLike(rightPinkyFingerLM, context)
+                    self.checkFrameLike(leftIndexFingerLM, context)
+                    self.checkFrameLike(rightIndexFingerLM, context)
+                    self.checkFrameLike(leftThumbLM, context)
+                    self.checkFrameLike(rightThumbLM, context)
+                    self.checkFrameLike(leftHipLM, context)
+                    self.checkFrameLike(rightHipLM, context)
+                    self.checkFrameLike(leftKneeLM, context)
+                    self.checkFrameLike(rightKneeLM, context)
+                    self.checkFrameLike(leftAnkleLM, context)
+                    self.checkFrameLike(rightAnkleLM, context)
+                    self.checkFrameLike(leftHeelLM, context)
+                    self.checkFrameLike(rightHeelLM, context)
+                    self.checkFrameLike(leftToeLM, context)
+                    self.checkFrameLike(rightToeLM, context)
+                    
+                    
                     context.drawPath(using: .stroke) // or .fillStroke if need filling
                                          
                     // Save the context as a new UIImage
@@ -108,6 +156,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
                 } // for poses
             } //end async on main queue
         } //end background async
-    }//end detect
+        
+        if containsPoses != true {
+            self.myTxtView.text = "No poses detected."
+        }
+        
+    }//end detect()
+    
+    // Check if the landmark.inFrameLikelihood is > 0.5 if it is add the circle 
+    func checkFrameLike(_ landMark: PoseLandmark, _ lmContext: CGContext) {
+        if landMark.inFrameLikelihood > 0.5 {
+            let landMarkPos = landMark.position
+            lmContext.addEllipse(in: CGRect(x: landMarkPos.x, y: landMarkPos.y, width: 10, height: 10))
+        }//end if
+    }//end checkFrameLike
     
 }//end ViewController
